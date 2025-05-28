@@ -11,8 +11,8 @@ redirect_from:
 
 Education
 ======
-* M.S. in Computer Science, Ho Chi Minh City University of Technology, 2024 - Present
-* B.E. in Electronics - Telecommunications Engineering, Ho Chi Minh City University of Technology, 2017 - 2022 (7.6/10)
+* 2024 - Present: M.S. in Computer Science, Ho Chi Minh City University of Technology 
+* 2017 - 2022: B.E. in Electronics - Telecommunications Engineering, Ho Chi Minh City University of Technology (7.6/10)
 
 Work Experience
 ======
