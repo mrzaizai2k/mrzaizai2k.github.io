@@ -7,6 +7,7 @@ redirect_from:
   - /resume
 ---
 
+
 {% include base_path %}
 <p style="font-size: 2em; font-weight: bold;">Mai Chi Bao / Curriculum Vitae</p>
 [chibao24.12.1999@gmail.com](mailto:chibao24.12.1999@gmail.com)
@@ -46,3 +47,8 @@ redirect_from:
 * Senior Application Development Promotion, Nam A Bank, 2024
 * Effective Contribution Award, Nam A Bank (3 consecutive quarters), 2023
 * IELTS 7.5/9.0, 2022
+    Doctrine UK, Online Talk (14th May 2023)
+  * **Multilingual NLP through Collaborative Research**\
+    The 2nd Composable, Automatic and Scalable Learning Workshop (CASL), Invited Talk (23rd February 2023)
+  * **Sequence-to-Sequence and Neural Machine Translation Model**\
+    Universitas Indonesia, Guest Lecture (28th April 2021)
