@@ -14,8 +14,8 @@ I am a Senior Machine Learning Engineer and Data Science Team Leader at Nam A Ba
 - **(2022 - 2023)** Algorithm Engineer, LONG Centre for Educational Development
 
 ### Education
-- MSc Computer Science, Ho Chi Minh City University of Technology (2024 - current)
-- BEng Electronics - Telecommunications Engineering, Ho Chi Minh City University of Technology (2017 - 2022)
+- **(2024 - current)** MSc Computer Science, Ho Chi Minh City University of Technology 
+- **(2017 - 2022)** BEng Electronics - Telecommunications Engineering, Ho Chi Minh City University of Technology 
 
 ### Skills
 - **Computer Vision & Image Processing**: OCR, image classification, object detection, face recognition
