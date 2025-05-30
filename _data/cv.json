@@ -1,27 +1,27 @@
 {
   "basics": {
-    "name": "Your Sidebar Name",
-    "email": "none@example.org",
-    "phone": "",
-    "website": "https://academicpages.github.io",
+    "name": "MAI CHI BAO",
+    "email": "chibao24.12.1999@gmail.com",
+    "phone": "+84 32 762 0475",
+    "website": "https://mrzaizai2k.github.io",
     "summary": "Currently employed at Nam A Bank as Senior Machine Learning Engineer and Data Science Team Leader.",
     "location": {
       "address": "",
       "postalCode": "",
       "city": "Ho Chi Minh City",
-      "countryCode": "VN",
+      "countryCode": "Viet Nam",
       "region": ""
     },
     "profiles": [
       {
-        "network": "Google Scholar",
-        "username": "",
-        "url": "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+        "network": "Dev.to",
+        "username": "Mrzaizai2k",
+        "url": "https://dev.to/mrzaizai2k"
       },
       {
-        "network": "ORCID",
+        "network": "LinkedIn",
         "username": "",
-        "url": "http://orcid.org/yourorcidurl"
+        "url": "www.linkedin.com/in/baochiwork"
       },
       {
         "network": "GitHub",
@@ -40,7 +40,7 @@
       "company": "Nam A Bank",
       "position": "Senior Machine Learning Engineer - Data Science Team Leader",
       "website": "",
-      "startDate": "2023-02-01",
+      "startDate": "2023",
       "endDate": "Present",
       "summary": "Fine-tuned Vision LLM (Qwen2VL) for golf scorecard extraction, achieving 83% higher accuracy than traditional OCR with 30 samples. Developed RAG-based chatbot with LLM, reducing latency and cost by up to 100x. Building facial recognition system with anti-spoofing for 1.8M+ customers. Led customer churn prediction with LightGBM, achieving over 78% accuracy on 28.5% of customers. Keynote Speaker at International Conference on Economics 2023 on Big Data.",
       "highlights": []
@@ -49,10 +49,12 @@
       "company": "LONG Centre for Educational Development",
       "position": "Algorithm Engineer",
       "website": "",
-      "startDate": "2022-02-01",
-      "endDate": "2023-01-31",
+      "startDate": "2022",
+      "endDate": "2023",
       "summary": "Researched Point Set Registration with Deep Learning approaches. Compared Graph-based, Convolutional-based, and Pointwise MLP methods.",
-      "highlights": []
+      "highlights": ["Developed a novel Point Set Registration algorithm using Deep Learning, achieving state-of-the-art results on benchmark datasets.",
+        "Implemented a robust evaluation framework to compare different registration methods, leading to significant improvements in accuracy and efficiency.",
+        "Collaborated with cross-functional teams to integrate the algorithm into existing systems, enhancing overall performance and user experience."]
     }
   ],
   "education": [
@@ -60,7 +62,7 @@
       "institution": "Ho Chi Minh City University of Technology",
       "area": "Computer Science",
       "studyType": "M.S.",
-      "startDate": "2024-01-01",
+      "startDate": "2024",
       "endDate": "Present",
       "gpa": null,
       "courses": []
@@ -69,8 +71,8 @@
       "institution": "Ho Chi Minh City University of Technology",
       "area": "Electronics - Telecommunications Engineering",
       "studyType": "B.E.",
-      "startDate": "2017-01-01",
-      "endDate": "2022-12-31",
+      "startDate": "2017",
+      "endDate": "2022",
       "gpa": "7.6/10",
       "courses": []
     }
