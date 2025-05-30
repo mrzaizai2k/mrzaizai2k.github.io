@@ -292,4 +292,22 @@
     </ul>
   </div>
   {% endif %}
+
+  {% if cv.achievements.size > 0 %}
+  <!-- Achievements -->
+  <div class="cv-section">
+    <h2>Achievements</h2>
+    <ul class="cv-list">
+      {% for achievement in cv.achievements %}
+      <li class="cv-item">
+        <div class="cv-item-header">
+          <div class="cv-item-title">{{ achievement.name }}</div>
+          <div class="cv-item-date">{{ achievement.startDate }}</div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
 </div>
