@@ -38,7 +38,7 @@
       "website": "",
       "startDate": "2023",
       "endDate": "Present",
-      "summary": "Fine-tuned Vision LLM (Qwen2VL) for golf scorecard extraction, achieving 83% higher accuracy than traditional OCR with 30 samples. Developed RAG-based chatbot with LLM, reducing latency and cost by up to 100x. Building facial recognition system with anti-spoofing for 1.8M+ customers. Led customer churn prediction with LightGBM, achieving over 78% accuracy on 28.5% of customers. Keynote Speaker at International Conference on Economics 2023 on Big Data.",
+      "summary": "",
       "highlights": [
         "Fine-tuned a Vision LLM (Qwen2VL) model for golf scorecard extraction, achieving 83% higher accuracy than traditional OCR with just 30 samples.",
         "Developed an advanced RAG-based chatbot with LLM and model routing, reducing latency and cost by up to 100x.",
