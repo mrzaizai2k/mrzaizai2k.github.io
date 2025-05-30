@@ -2,15 +2,11 @@
   "basics": {
     "name": "MAI CHI BAO",
     "email": "chibao24.12.1999@gmail.com",
-    "phone": "+84 32 762 0475",
+    "phone": "+84 327 620 475",
     "website": "https://mrzaizai2k.github.io",
-    "summary": "Currently employed at Nam A Bank as Senior Machine Learning Engineer and Data Science Team Leader.",
     "location": {
-      "address": "",
-      "postalCode": "",
       "city": "Ho Chi Minh City",
-      "countryCode": "Viet Nam",
-      "region": ""
+      "countryCode": "Viet Nam"
     },
     "profiles": [
       {
@@ -20,18 +16,18 @@
       },
       {
         "network": "LinkedIn",
-        "username": "",
-        "url": "www.linkedin.com/in/baochiwork"
+        "username": "Bao Mai",
+        "url": "https://www.linkedin.com/in/baochiwork/"
       },
       {
         "network": "GitHub",
-        "username": "academicpages",
-        "url": "https://github.com/academicpages"
+        "username": "Mrzaizai2k",
+        "url": "https://github.com/mrzaizai2k"
       },
       {
         "network": "YouTube",
         "username": "Mrzaizai2k",
-        "url": "https://www.youtube.com/@Mrzaizai2k"
+        "url": "https://www.youtube.com/@mrzaizai2k-ai704"
       }
     ]
   },
@@ -43,7 +39,14 @@
       "startDate": "2023",
       "endDate": "Present",
       "summary": "Fine-tuned Vision LLM (Qwen2VL) for golf scorecard extraction, achieving 83% higher accuracy than traditional OCR with 30 samples. Developed RAG-based chatbot with LLM, reducing latency and cost by up to 100x. Building facial recognition system with anti-spoofing for 1.8M+ customers. Led customer churn prediction with LightGBM, achieving over 78% accuracy on 28.5% of customers. Keynote Speaker at International Conference on Economics 2023 on Big Data.",
-      "highlights": []
+      "highlights": [
+        "Fine-tuned a Vision LLM (Qwen2VL) model for golf scorecard extraction, achieving 83% higher accuracy than traditional OCR with just 30 samples.",
+        "Developed an advanced RAG-based chatbot with LLM and model routing, reducing latency and cost by up to 100x.",
+        "Building a facial recognition system with anti-spoofing functionality for 1.8M+ customers, aligning with Decision No. 2345 of the State Bank of Vietnam.",
+        "Lead on Customer churn prediction with LightGBM offers over 78% accuracy while predicting 28.5% of the bank's overall customers.",
+        "Keynote Speaker at International Conference on Economics 2023 about Big Data",
+        "Apply DevOps, MLOps to automate the processes in Linux environment"
+      ]
     },
     {
       "company": "LONG Centre for Educational Development",
@@ -51,10 +54,12 @@
       "website": "",
       "startDate": "2022",
       "endDate": "2023",
-      "summary": "Researched Point Set Registration with Deep Learning approaches. Compared Graph-based, Convolutional-based, and Pointwise MLP methods.",
-      "highlights": ["Developed a novel Point Set Registration algorithm using Deep Learning, achieving state-of-the-art results on benchmark datasets.",
-        "Implemented a robust evaluation framework to compare different registration methods, leading to significant improvements in accuracy and efficiency.",
-        "Collaborated with cross-functional teams to integrate the algorithm into existing systems, enhancing overall performance and user experience."]
+      "summary": "",
+      "highlights": [
+        "Researching on Point Set Registration with Deep Learning approaches",
+        "Compare techniques of Graph-based, Convolutional-based, and Pointwise MLP methods",
+        "PointCNN | PointNet++ | DGCNN | LDGCNN | FCGF feature extraction model"
+      ]
     }
   ],
   "education": [
