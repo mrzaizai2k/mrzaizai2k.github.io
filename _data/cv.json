@@ -4,12 +4,12 @@
     "email": "none@example.org",
     "phone": "",
     "website": "https://academicpages.github.io",
-    "summary": "Currently employed at Red Brick University. Short biography for the left-hand sidebar",
+    "summary": "Currently employed at Nam A Bank as Senior Machine Learning Engineer and Data Science Team Leader.",
     "location": {
       "address": "",
       "postalCode": "",
-      "city": "Earth",
-      "countryCode": "US",
+      "city": "Ho Chi Minh City",
+      "countryCode": "VN",
       "region": ""
     },
     "profiles": [
@@ -27,42 +27,118 @@
         "network": "GitHub",
         "username": "academicpages",
         "url": "https://github.com/academicpages"
+      },
+      {
+        "network": "YouTube",
+        "username": "Mrzaizai2k",
+        "url": "https://www.youtube.com/@Mrzaizai2k"
       }
     ]
   },
-  "work": [],
+  "work": [
+    {
+      "company": "Nam A Bank",
+      "position": "Senior Machine Learning Engineer - Data Science Team Leader",
+      "website": "",
+      "startDate": "2023-02-01",
+      "endDate": "Present",
+      "summary": "Fine-tuned Vision LLM (Qwen2VL) for golf scorecard extraction, achieving 83% higher accuracy than traditional OCR with 30 samples. Developed RAG-based chatbot with LLM, reducing latency and cost by up to 100x. Building facial recognition system with anti-spoofing for 1.8M+ customers. Led customer churn prediction with LightGBM, achieving over 78% accuracy on 28.5% of customers. Keynote Speaker at International Conference on Economics 2023 on Big Data.",
+      "highlights": []
+    },
+    {
+      "company": "LONG Centre for Educational Development",
+      "position": "Algorithm Engineer",
+      "website": "",
+      "startDate": "2022-02-01",
+      "endDate": "2023-01-31",
+      "summary": "Researched Point Set Registration with Deep Learning approaches. Compared Graph-based, Convolutional-based, and Pointwise MLP methods.",
+      "highlights": []
+    }
+  ],
   "education": [
     {
-      "institution": "GitHub University",
-      "area": "Ph.D in Version Control Theory",
-      "studyType": "",
-      "startDate": "",
-      "endDate": "2018",
+      "institution": "Ho Chi Minh City University of Technology",
+      "area": "Computer Science",
+      "studyType": "M.S.",
+      "startDate": "2024-01-01",
+      "endDate": "Present",
       "gpa": null,
       "courses": []
     },
     {
-      "institution": "GitHub University",
-      "area": "M.S. in Jekyll",
-      "studyType": "",
-      "startDate": "",
-      "endDate": "2014",
-      "gpa": null,
-      "courses": []
-    },
-    {
-      "institution": "GitHub University",
-      "area": "B.S. in GitHub",
-      "studyType": "",
-      "startDate": "",
-      "endDate": "2012",
-      "gpa": null,
+      "institution": "Ho Chi Minh City University of Technology",
+      "area": "Electronics - Telecommunications Engineering",
+      "studyType": "B.E.",
+      "startDate": "2017-01-01",
+      "endDate": "2022-12-31",
+      "gpa": "7.6/10",
       "courses": []
     }
   ],
-  "skills": [],
-  "languages": [],
-  "interests": [],
+  "skills": [
+    {
+      "name": "Machine Learning & AI",
+      "keywords": [
+        "LightGBM",
+        "Deep Learning (CNN, RNN)",
+        "LLMs (Qwen2VL, OpenAI)",
+        "Computer Vision",
+        "NLP",
+        "Time Series Prediction"
+      ]
+    },
+    {
+      "name": "Programming",
+      "keywords": [
+        "Python",
+        "C++",
+        "TensorFlow",
+        "PyTorch",
+        "Langchain"
+      ]
+    },
+    {
+      "name": "Software Development",
+      "keywords": [
+        "ReactJS",
+        "MongoDB",
+        "Docker",
+        "AWS (EC2)",
+        "CI/CD"
+      ]
+    },
+    {
+      "name": "Embedded Systems",
+      "keywords": [
+        "Arduino",
+        "PLC",
+        "SCADA"
+      ]
+    },
+    {
+      "name": "Other",
+      "keywords": [
+        "Public Speaking",
+        "Leadership"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "IELTS 7.5/9.0, TOEIC 910/990"
+    }
+  ],
+  "interests": [
+    {
+      "name": "YouTube Content Creation",
+      "keywords": ["AI", "Machine Learning", "Deep Learning"]
+    },
+    {
+      "name": "Music Club Leadership",
+      "keywords": ["Event Organization", "Community Engagement"]
+    }
+  ],
   "references": [],
   "publications": [
     {
@@ -95,6 +171,13 @@
     }
   ],
   "presentations": [
+    {
+      "name": "Keynote on Big Data",
+      "event": "International Conference on Economics",
+      "date": "2023-01-01",
+      "location": "",
+      "description": ""
+    },
     {
       "name": "Talk 1 on Relevant Topic in Your Field",
       "event": "UC San Francisco, Department of Testing",
@@ -142,11 +225,25 @@
   ],
   "portfolio": [
     {
-      "name": "Portfolio item number 1",
+      "name": "Multilanguage Invoice OCR",
       "category": "portfolio",
-      "date": "",
+      "date": "2024-08-01",
       "url": "",
-      "description": "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+      "description": "Optimized invoice extraction for a German company using Vision LLM (Qwen2VL) and OpenAI. Developed and deployed full-stack AI application (Python, ReactJS, MongoDB) on AWS with Docker. Automated processes with DevOps/MLOps."
+    },
+    {
+      "name": "Telegram Bot Assistant",
+      "category": "portfolio",
+      "date": "2023-11-01",
+      "url": "",
+      "description": "Developed bot for stock-related tasks, document Q&A using Langchain, LLMs, and RAG. Integrated voice-to-task functionality with Whisper and Microsoft To Do."
+    },
+    {
+      "name": "Automated Scoring of Handwritten Test Papers",
+      "category": "portfolio",
+      "date": "2021-03-01",
+      "url": "",
+      "description": "Used OpenCV for image preprocessing, reducing processing time by 50%. Implemented CRNN-CTC Loss Model with Attention and Lexicon Search, achieving 95.55% accuracy on 245 students."
     }
   ]
 }

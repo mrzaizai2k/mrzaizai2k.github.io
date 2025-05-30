@@ -24,11 +24,11 @@ main:
     url: https://dev.to/mrzaizai2k
     target: _blank
     
-  - title: "CV"
-    url: /cv/
-    
   # - title: "CV"
-  #   url: /cv-json/
+  #   url: /cv/
+    
+  - title: "CV"
+    url: /cv-json/
     
   - title: "Guide"
     url: /markdown/
