@@ -147,110 +147,34 @@
     }
   ],
   "references": [],
-  "publications": [
-    {
-      "name": "Paper Title Number 1",
-      "publisher": "Journal 1",
-      "releaseDate": "2009-10-01",
-      "website": "http://academicpages.github.io/files/paper1.pdf",
-      "summary": "This paper is about the number 1. The number 2 is left for future work."
-    },
-    {
-      "name": "Paper Title Number 2",
-      "publisher": "Journal 1",
-      "releaseDate": "2010-10-01",
-      "website": "http://academicpages.github.io/files/paper2.pdf",
-      "summary": "This paper is about the number 2. The number 3 is left for future work."
-    },
-    {
-      "name": "Paper Title Number 3",
-      "publisher": "Journal 1",
-      "releaseDate": "2015-10-01",
-      "website": "http://academicpages.github.io/files/paper3.pdf",
-      "summary": "This paper is about the number 3. The number 4 is left for future work."
-    },
-    {
-      "name": "Paper Title Number 4",
-      "publisher": "GitHub Journal of Bugs",
-      "releaseDate": "2024-02-17",
-      "website": "http://academicpages.github.io/files/paper3.pdf",
-      "summary": "This paper is about fixing template issue #693."
-    }
-  ],
+  "publications": [],
   "presentations": [
     {
-      "name": "Keynote on Big Data",
-      "event": "International Conference on Economics",
-      "date": "2023-01-01",
-      "location": "",
-      "description": ""
-    },
-    {
-      "name": "Talk 1 on Relevant Topic in Your Field",
-      "event": "UC San Francisco, Department of Testing",
-      "date": "2012-03-01",
-      "location": "San Francisco, CA, USA",
-      "description": ""
-    },
-    {
-      "name": "Tutorial 1 on Relevant Topic in Your Field",
-      "event": "UC-Berkeley Institute for Testing Science",
-      "date": "2013-03-01",
-      "location": "Berkeley, CA, USA",
-      "description": ""
-    },
-    {
-      "name": "Talk 2 on Relevant Topic in Your Field",
-      "event": "London School of Testing",
-      "date": "2014-02-01",
-      "location": "London, UK",
-      "description": ""
-    },
-    {
-      "name": "Conference Proceeding talk 3 on Relevant Topic in Your Field",
-      "event": "Testing Institute of America 2014 Annual Conference",
-      "date": "2014-03-01",
-      "location": "Los Angeles, CA, USA",
-      "description": ""
+      "name": "Keynote on Big Data The fire for 21st century",
+      "event": "ICE 2023",
+      "date": "2023-18-03",
+      "location": "Ho Chi Minh City, Viet Nam",
+      "description": "As a Nam A Bank representative, my speech, “Big Data: The Fire of the 21st Century?”, highlighted Big Data's role in modern banking"
     }
   ],
-  "teaching": [
+  "teaching": [],
+  "achievements": [
     {
-      "course": "Teaching experience 1",
-      "institution": "University 1, Department",
-      "date": "2014-01-01",
-      "role": "Undergraduate course",
-      "description": ""
+      "name": "Received a promotion to the position of Senior Application Development at Nam A Bank.",
+      "startDate": "2024"
     },
     {
-      "course": "Teaching experience 2",
-      "institution": "University 1, Department",
-      "date": "2015-01-01",
-      "role": "Workshop",
-      "description": ""
+      "name": "Award Effective Contribution in Nam A Bank (3 consecutive quarters)",
+      "startDate": "2023"
+    },
+    {
+      "name": "7.5 / 9.0 (IELTS)",
+      "startDate": "2022"
+    },
+    {
+      "name": "910 / 990 (TOEIC)",
+      "startDate": "2020"
     }
   ],
-  "portfolio": [
-    {
-      "name": "Multilanguage Invoice OCR",
-      "category": "portfolio",
-      "date": "2024-08-01",
-      "url": "",
-      "description": "Optimized invoice extraction for a German company using Vision LLM (Qwen2VL) and OpenAI. Developed and deployed full-stack AI application (Python, ReactJS, MongoDB) on AWS with Docker. Automated processes with DevOps/MLOps."
-    },
-    {
-      "name": "Telegram Bot Assistant",
-      "category": "portfolio",
-      "date": "2023-11-01",
-      "url": "",
-      "description": "Developed bot for stock-related tasks, document Q&A using Langchain, LLMs, and RAG. Integrated voice-to-task functionality with Whisper and Microsoft To Do."
-    },
-    {
-      "name": "Automated Scoring of Handwritten Test Papers",
-      "category": "portfolio",
-      "date": "2021-03-01",
-      "url": "",
-      "description": "Used OpenCV for image preprocessing, reducing processing time by 50%. Implemented CRNN-CTC Loss Model with Attention and Lexicon Search, achieving 95.55% accuracy on 245 students."
-    }
-  ]
+  "portfolio": []
 }
