@@ -46,22 +46,6 @@ Projects
   - Used OpenCV for image preprocessing, reducing processing time by 50%.
   - Implemented CRNN-CTC Loss Model with Attention and Lexicon Search, achieving 95.55% accuracy on 245 students.
 
-Skills
-======
-* **Machine Learning & AI**
-  - Models: LightGBM, Deep Learning (CNN, RNN), LLMs (Qwen2VL, OpenAI)
-  - Techniques: Computer Vision, NLP, Time Series Prediction
-* **Programming**
-  - Languages: Python, C++
-  - Frameworks: TensorFlow, PyTorch, Langchain
-* **Software Development**
-  - Full-stack: ReactJS, MongoDB
-  - DevOps/MLOps: Docker, AWS (EC2), CI/CD
-* **Embedded Systems**
-  - Arduino, PLC, SCADA
-* **Other**
-  - Public Speaking, Leadership
-
 Activities
 ======
 * Sep 2022 - Present: YouTuber, Mrzaizai2k - AI

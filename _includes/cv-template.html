@@ -310,4 +310,39 @@
   </div>
   {% endif %}
 
+  
+  {% if cv.activities.size > 0 %}
+  <!-- Activities -->
+  <div class="cv-section">
+    <h2>Activities</h2>
+    <ul class="cv-list">
+      {% for activity in cv.activities %}
+      <li class="cv-item">
+        <div class="cv-item-header">
+          <div class="cv-item-title">{{ activity.position }}</div>
+          <div class="cv-item-date">{{ activity.startDate }}{% if activity.endDate %} - {{ activity.endDate }}{% endif %}</div>
+        </div>
+        <div class="cv-item-content">
+          <div class="cv-item-subtitle">{{ activity.organization }}</div>
+          {% if activity.website %}
+          <div class="cv-item-detail">
+            <a href="{{ activity.website }}" target="_blank">{{ activity.website }}</a>
+          </div>
+          {% endif %}
+          {% if activity.summary %}
+          <div class="cv-item-detail">{{ activity.summary }}</div>
+          {% endif %}
+          {% if activity.highlights.size > 0 %}
+          <ul class="cv-highlights">
+            {% for highlight in activity.highlights %}
+            <li>{{ highlight }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
 </div>

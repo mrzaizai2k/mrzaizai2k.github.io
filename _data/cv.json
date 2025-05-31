@@ -68,7 +68,7 @@
       "area": "Computer Science",
       "studyType": "M.S.",
       "startDate": "2024",
-      "endDate": "Present",
+      "endDate": "2024 - Present",
       "gpa": null,
       "courses": []
     },
@@ -77,90 +77,21 @@
       "area": "Electronics - Telecommunications Engineering",
       "studyType": "B.E.",
       "startDate": "2017",
-      "endDate": "2022",
+      "endDate": "2017 - 2022",
       "gpa": "7.6/10",
       "courses": []
     }
   ],
-  "skills": [
-    {
-      "name": "Machine Learning & AI",
-      "keywords": [
-        "LightGBM",
-        "Deep Learning (CNN, RNN)",
-        "LLMs (Qwen2VL, OpenAI)",
-        "Computer Vision",
-        "NLP",
-        "Time Series Prediction"
-      ]
-    },
-    {
-      "name": "Programming",
-      "keywords": [
-        "Python",
-        "C++",
-        "TensorFlow",
-        "PyTorch",
-        "Langchain"
-      ]
-    },
-    {
-      "name": "Software Development",
-      "keywords": [
-        "ReactJS",
-        "MongoDB",
-        "Docker",
-        "AWS (EC2)",
-        "CI/CD"
-      ]
-    },
-    {
-      "name": "Embedded Systems",
-      "keywords": [
-        "Arduino",
-        "PLC",
-        "SCADA"
-      ]
-    },
-    {
-      "name": "Other",
-      "keywords": [
-        "Public Speaking",
-        "Leadership"
-      ]
-    }
-  ],
-  "languages": [
-    {
-      "language": "English",
-      "fluency": "IELTS 7.5/9.0, TOEIC 910/990"
-    }
-  ],
-  "interests": [
-    {
-      "name": "YouTube Content Creation",
-      "keywords": ["AI", "Machine Learning", "Deep Learning"]
-    },
-    {
-      "name": "Music Club Leadership",
-      "keywords": ["Event Organization", "Community Engagement"]
-    }
-  ],
+  "skills": [],
+  "languages": [],
+  "interests": [],
   "references": [],
   "publications": [],
-  "presentations": [
-    {
-      "name": "Keynote on Big Data The fire for 21st century",
-      "event": "ICE 2023",
-      "date": "2023-18-03",
-      "location": "Ho Chi Minh City, Viet Nam",
-      "description": "As a Nam A Bank representative, my speech, “Big Data: The Fire of the 21st Century?”, highlighted Big Data's role in modern banking"
-    }
-  ],
+  "presentations": [],
   "teaching": [],
   "achievements": [
     {
-      "name": "Received a promotion to the position of Senior Application Development at Nam A Bank.",
+      "name": "Received a promotion to the position of Senior at Nam A Bank.",
       "startDate": "2024"
     },
     {
@@ -174,6 +105,41 @@
     {
       "name": "910 / 990 (TOEIC)",
       "startDate": "2020"
+    }
+  ],
+  "activities": [
+    {
+      "organization": "Mrzaizai2k - AI",
+      "position": "Youtuber",
+      "website": "https://www.youtube.com/@mrzaizai2k-ai704",
+      "startDate": "2022-09",
+      "endDate": "Present",
+      "summary": "",
+      "highlights": [
+        "Host a Youtube channel specialized in AI, ML and DL",
+        "7 videos, 212 subscribers and 13392 views"
+      ]
+    },
+    {
+      "organization": "ICE 2023",
+      "position": "Keynote Speaker",
+      "website": "https://youtu.be/2nnarNmz9tk?si=KSaZ4TC9GZFDc3Jm",
+      "startDate": "2023",
+      "endDate": "",
+      "summary": "",
+      "highlights": ["As a Nam A Bank representative, my speech, “Big Data: The Fire of the 21st Century?”, highlighted Big Data's role in modern banking"]
+    },
+    {
+      "organization": "Bach Khoa Music Club – Ho Chi Minh City University of Technology",
+      "position": "Club President",
+      "website": "https://www.facebook.com/BKMC.HCMUT",
+      "startDate": "2018-02",
+      "endDate": "2020-06",
+      "summary": "",
+      "highlights": [
+        "Planning and Organizing BK's Got Talent 2018 | Xem Xém OLD | Lơ show… of more than 100 persons each",
+        "Over 2000 new fan page followers during my time in charge"
+      ]
     }
   ],
   "portfolio": []
