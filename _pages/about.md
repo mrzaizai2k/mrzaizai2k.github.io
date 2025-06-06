@@ -7,6 +7,8 @@ redirect_from:
   - /about.html
 ---
 
+**Updated on 6 June 2025**: Please check [my new website](https://mrzaizai2k.xyz/) for updated info 
+
 I am a Senior Machine Learning Engineer and Data Science Team Leader at Nam A Bank, with expertise in AI, ML, and DL. I graduated from Ho Chi Minh City University of Technology with a BEng in Electronics - Telecommunications Engineering and am currently pursuing an MSc in Computer Science. My work focuses on computer vision, NLP, MLOps, and predictive analytics. Previously, I was an Algorithm Engineer at LONG Centre for Educational Development. I also led the Bach Khoa Music Club, organizing events like BK's Got Talent 2018.
 
 ### Work
