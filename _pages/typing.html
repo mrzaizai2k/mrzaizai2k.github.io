@@ -5,5 +5,25 @@ permalink: /typing
 author_profile: true
 ---
 
-<p>This is generated from a my repo in <a href="https://github.com/mrzaizai2k/simple-typing/blob/main/typing.html">typing.py</a>, which í a simple typing tool</p>
-<iframe src="/talkmap/typing.html" height="700" width="850" style="border:none;"></iframe>
+<p>This is generated from my repo in <a href="https://github.com/mrzaizai2k/simple-typing/blob/main/typing.html">typing.py</a>, which is a simple typing tool</p>
+
+<style>
+  .responsive-iframe {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 90%; /* Adjust this value based on desired aspect ratio (850/700 ≈ 1.214) */
+  }
+  .responsive-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>
+
+<div class="responsive-iframe">
+  <iframe src="/talkmap/typing.html"></iframe>
+</div>
