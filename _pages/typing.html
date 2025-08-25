@@ -1,50 +1,32 @@
 ---
-layout: default
+layout: archive
 permalink: /typing/
-title: "Typing Practice"
+title: "Typing"
+author_profile: true
 ---
 
 <style>
-.typing-container {
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
+.typing-wrapper {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-.typing-app {
+.container {
     background: white;
-    padding: 20px;
+    padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
 }
 
-.typing-title {
+h1 {
     text-align: center;
     color: #333;
-    margin-bottom: 25px;
-    font-size: 2rem;
+    margin-bottom: 30px;
 }
 
-.reference-input {
-    width: 100%;
-    height: 60px;
-    padding: 12px;
-    border: 2px solid #007bff;
-    border-radius: 10px;
-    font-size: 16px;
-    margin-bottom: 15px;
-    font-family: inherit;
-    resize: vertical;
-}
-
-.reference-input:focus {
-    outline: none;
-    border-color: #0056b3;
-    box-shadow: 0 0 10px rgba(0,123,255,0.25);
-}
-
-.reference-display {
+.reference-container {
     background: #f8f9fa;
     border: 2px solid #e9ecef;
     border-radius: 10px;
@@ -53,19 +35,11 @@ title: "Typing Practice"
     overflow-x: auto;
     white-space: nowrap;
     font-family: 'Courier New', monospace;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
     scroll-behavior: smooth;
     outline: none;
     cursor: text;
-    min-height: 100px;
-    display: flex;
-    align-items: center;
-}
-
-.reference-display:focus {
-    border-color: #007bff;
-    background: #ffffff;
 }
 
 .correct { 
@@ -84,7 +58,6 @@ title: "Typing Practice"
 
 .pending { 
     color: #6c757d; 
-    opacity: 0.7;
 }
 
 .current {
@@ -100,30 +73,41 @@ title: "Typing Practice"
     51%, 100% { opacity: 0.3; }
 }
 
+#typing-input {
+    display: none;
+}
+
+#typing-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+}
+
 .stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
+    display: flex;
+    justify-content: space-around;
     margin: 20px 0;
+    flex-wrap: wrap;
 }
 
 .stat-box {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 10px;
     text-align: center;
+    min-width: 120px;
+    margin: 5px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .stat-value {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
     display: block;
 }
 
 .stat-label {
-    font-size: 11px;
+    font-size: 12px;
     opacity: 0.9;
     margin-top: 5px;
 }
@@ -159,8 +143,6 @@ title: "Typing Practice"
     cursor: pointer;
     transition: transform 0.2s;
     box-shadow: 0 4px 15px rgba(255,107,107,0.3);
-    display: block;
-    margin: 0 auto;
 }
 
 .reset-btn:hover {
@@ -182,50 +164,19 @@ title: "Typing Practice"
     0% { transform: scale(0.8); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
 }
-
-.placeholder-text {
-    color: #6c757d;
-    font-size: 16px;
-    text-align: center;
-    font-style: italic;
-}
-
-@media (max-width: 768px) {
-    .typing-app {
-        padding: 15px;
-    }
-    
-    .typing-title {
-        font-size: 1.5rem;
-    }
-    
-    .reference-display {
-        font-size: 16px;
-        padding: 15px;
-    }
-    
-    .stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-}
 </style>
 
-<div class="typing-container">
-    <div class="typing-app">
-        <h1 class="typing-title">🚀 Real-time Typing Practice</h1>
+<div class="typing-wrapper">
+    <div class="container">
+        <h1>🚀 Real-time Typing Practice</h1>
         
         <textarea 
             id="reference-input" 
-            class="reference-input"
-            placeholder="Enter your reference text here... Start typing to begin practice!"
+            placeholder="Enter your reference text here (single line)..."
+            style="width: 100%; height: 60px; padding: 10px; border: 2px solid #007bff; border-radius: 10px; font-size: 16px; margin-bottom: 15px;"
         ></textarea>
         
-        <div id="reference-display" class="reference-display" tabindex="0">
-            <div class="placeholder-text">
-                ✨ Enter some text above and click here to start typing practice!
-            </div>
-        </div>
+        <div id="reference-display" class="reference-container" tabindex="0"></div>
         
         <div class="stats">
             <div class="stat-box">
@@ -278,10 +229,8 @@ referenceInput.addEventListener('input', function(e) {
 
 // Handle typing directly on reference display
 referenceDisplay.addEventListener('keydown', function(e) {
-    if (!referenceText) return;
-    
     // Prevent default for most keys except special ones
-    if (!e.ctrlKey && !e.altKey && !e.metaKey && e.key.length === 1) {
+    if (!e.ctrlKey && !e.altKey && e.key.length === 1) {
         e.preventDefault();
         
         // Add the typed character
@@ -300,20 +249,10 @@ referenceDisplay.addEventListener('keydown', function(e) {
     }
 });
 
-// Focus on click
-referenceDisplay.addEventListener('click', function() {
-    referenceDisplay.focus();
-});
-
 // Initialize display
 updateDisplay();
 
 function updateDisplay() {
-    if (!referenceText) {
-        referenceDisplay.innerHTML = '<div class="placeholder-text">✨ Enter some text above and click here to start typing practice!</div>';
-        return;
-    }
-    
     // Update reference text with colors
     let coloredText = '';
     let correctChars = 0;
@@ -323,16 +262,16 @@ function updateDisplay() {
         
         if (i < typedText.length) {
             if (typedText[i] === refChar) {
-                coloredText += `<span class="correct">${refChar === ' ' ? '&nbsp;' : refChar}</span>`;
+                coloredText += `<span class="correct">${refChar}</span>`;
                 correctChars++;
             } else {
-                coloredText += `<span class="incorrect">${refChar === ' ' ? '&nbsp;' : refChar}</span>`;
+                coloredText += `<span class="incorrect">${refChar}</span>`;
             }
         } else if (i === typedText.length) {
             // Current character to type
-            coloredText += `<span class="current">${refChar === ' ' ? '&nbsp;' : refChar}</span>`;
+            coloredText += `<span class="current">${refChar}</span>`;
         } else {
-            coloredText += `<span class="pending">${refChar === ' ' ? '&nbsp;' : refChar}</span>`;
+            coloredText += `<span class="pending">${refChar}</span>`;
         }
     }
     
@@ -345,30 +284,31 @@ function updateDisplay() {
         const spanLeft = currentSpan.offsetLeft;
         
         // Only scroll when current position is getting close to right edge
-        const scrollThreshold = containerWidth * 0.7;
+        const scrollThreshold = containerWidth * 0.7; // Start scrolling when 70% across
         const currentScrollLeft = referenceDisplay.scrollLeft;
         const relativePosition = spanLeft - currentScrollLeft;
         
         if (relativePosition > scrollThreshold) {
+            // Scroll by smaller increments to keep text visible
             referenceDisplay.scrollLeft = currentScrollLeft + (containerWidth * 0.3);
         }
     }
     
     // Calculate stats
-    if (startTime && typedText.length > 0) {
+    if (startTime) {
         const elapsedTime = (Date.now() - startTime) / 1000;
         
         // Calculate accuracy based only on characters typed so far
         const accuracy = typedText.length > 0 ? (correctChars / typedText.length) * 100 : 100;
         
-        const wordsTyped = correctChars / 5; // Standard: 5 characters = 1 word
+        const wordsTyped = typedText.trim().split(/\s+/).length;
         const wpm = elapsedTime > 0 ? (wordsTyped / elapsedTime) * 60 : 0;
         const progress = Math.min(typedText.length / referenceText.length, 1) * 100;
         
         // Update display
         timeSpan.textContent = elapsedTime.toFixed(1);
         accuracySpan.textContent = accuracy.toFixed(1);
-        wpmSpan.textContent = wpm.toFixed(0);
+        wpmSpan.textContent = wpm.toFixed(1);
         progressSpan.textContent = `${typedText.length}/${referenceText.length}`;
         progressFill.style.width = progress + '%';
         progressFill.textContent = progress.toFixed(1) + '%';
@@ -386,14 +326,6 @@ function updateDisplay() {
         } else {
             completionMessage.style.display = 'none';
         }
-    } else {
-        // Reset stats
-        timeSpan.textContent = '0.0';
-        accuracySpan.textContent = '100';
-        wpmSpan.textContent = '0';
-        progressSpan.textContent = `0/${referenceText.length}`;
-        progressFill.style.width = '0%';
-        progressFill.textContent = '0%';
     }
 }
 
@@ -403,15 +335,15 @@ function resetPractice() {
     referenceDisplay.scrollLeft = 0;
     completionMessage.style.display = 'none';
     updateDisplay();
-    setTimeout(() => referenceDisplay.focus(), 100);
+    referenceDisplay.focus();
 }
 
 // Auto-focus on load
 window.addEventListener('load', () => {
-    referenceInput.focus();
+    referenceDisplay.focus();
 });
 
-// Handle window resize
+// Handle window resize to fix scroll positions
 window.addEventListener('resize', function() {
     setTimeout(() => {
         updateDisplay();
@@ -424,12 +356,4 @@ setInterval(() => {
         updateDisplay();
     }
 }, 100);
-
-// Add keyboard shortcuts
-document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey && e.key === 'r') {
-        e.preventDefault();
-        resetPractice();
-    }
-});
 </script>
