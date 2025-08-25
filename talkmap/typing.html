@@ -11,19 +11,35 @@
             margin: 0 auto;
             padding: 20px;
             background-color: #f5f5f5;
+            transition: background-color 0.3s ease;
         }
         
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+
         .container {
             background: white;
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+        
+        body.dark-mode .container {
+            background: #2c2c2c;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
         
         h1 {
             text-align: center;
             color: #333;
             margin-bottom: 30px;
+        }
+        
+        body.dark-mode h1 {
+            color: #e0e0e0;
         }
         
         .reference-container {
@@ -40,6 +56,12 @@
             scroll-behavior: smooth;
             outline: none;
             cursor: text;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        body.dark-mode .reference-container {
+            background: #333;
+            border-color: #555;
         }
         
         .correct { 
@@ -49,6 +71,11 @@
             border-radius: 3px;
         }
         
+        body.dark-mode .correct {
+            background-color: #bdeec8;
+            color: #020e02;
+        }
+        
         .incorrect { 
             background-color: #f8d7da; 
             color: #721c24; 
@@ -56,8 +83,17 @@
             border-radius: 3px;
         }
         
+        body.dark-mode .incorrect {
+            background-color: #f5c1c6;
+            color: #24070a;
+        }
+        
         .pending { 
             color: #6c757d; 
+        }
+        
+        body.dark-mode .pending {
+            color: #aaaaaa;
         }
         
         .current {
@@ -66,6 +102,11 @@
             padding: 2px 1px;
             border-radius: 3px;
             animation: blink 1s infinite;
+        }
+        
+        body.dark-mode .current {
+            background-color: #f8e7b2;
+            color: #3c2f00;
         }
         
         @keyframes blink {
@@ -80,6 +121,11 @@
         #typing-input:focus {
             border-color: #007bff;
             box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+        }
+        
+        body.dark-mode #typing-input:focus {
+            border-color: #4dabf7;
+            box-shadow: 0 0 0 3px rgba(77,171,247,0.25);
         }
         
         .stats {
@@ -100,6 +146,10 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         
+        body.dark-mode .stat-box {
+            background: linear-gradient(135deg, #4b5e8c 0%, #5e3c6f 100%);
+        }
+        
         .stat-value {
             font-size: 24px;
             font-weight: bold;
@@ -118,6 +168,11 @@
             height: 20px;
             margin: 20px 0;
             overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+        
+        body.dark-mode .progress-bar {
+            background-color: #444;
         }
         
         .progress-fill {
@@ -133,7 +188,11 @@
             font-weight: bold;
         }
         
-        .reset-btn {
+        body.dark-mode .progress-fill {
+            background: linear-gradient(90deg, #2e7d32, #26a69a);
+        }
+        
+        .reset-btn, .theme-toggle-btn {
             background: linear-gradient(135deg, #ff6b6b, #ee5a52);
             color: white;
             border: none;
@@ -143,9 +202,15 @@
             cursor: pointer;
             transition: transform 0.2s;
             box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+            margin: 10px;
         }
         
-        .reset-btn:hover {
+        body.dark-mode .reset-btn, body.dark-mode .theme-toggle-btn {
+            background: linear-gradient(135deg, #d81b60, #c2185b);
+            box-shadow: 0 4px 15px rgba(216,27,96,0.3);
+        }
+        
+        .reset-btn:hover, .theme-toggle-btn:hover {
             transform: translateY(-2px);
         }
         
@@ -158,6 +223,10 @@
             margin: 20px 0;
             font-size: 18px;
             animation: celebration 0.5s ease-in-out;
+        }
+        
+        body.dark-mode .completion-message {
+            background: linear-gradient(135deg, #2e7d32, #26a69a);
         }
         
         @keyframes celebration {
@@ -203,7 +272,11 @@
         
         <div id="completion-message" class="completion-message" style="display: none;"></div>
         
-        <button class="reset-btn" onclick="resetPractice()">🔄 Reset Practice</button>
+        <div style="text-align: center;">
+            <button class="theme-toggle-btn" onclick="toggleTheme()">🌙 Toggle Theme</button>
+            <button class="reset-btn" onclick="resetPractice()">🔄 Reset Practice</button>
+        </div>
+</div>
     </div>
 
     <script>
@@ -289,7 +362,7 @@
                 
                 if (relativePosition > scrollThreshold) {
                     // Scroll by smaller increments to keep text visible
-                    referenceDisplay.scrollLeft = currentScrollLeft + (containerWidth * 0.3);
+                    referenceDisplay.scrollLeft = currentScrollLeft + (containerWidth * 0.1);
                 }
             }
             
@@ -335,6 +408,10 @@
             completionMessage.style.display = 'none';
             updateDisplay();
             referenceDisplay.focus();
+        }
+        
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
         }
         
         // Auto-focus on load
