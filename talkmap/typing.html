@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Typing Practice</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .reference-container {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            white-space: nowrap;
+            font-family: 'Courier New', monospace;
+            font-size: 20px;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            outline: none;
+            cursor: text;
+        }
+        
+        .correct { 
+            background-color: #d4edda; 
+            color: #155724; 
+            padding: 2px 1px;
+            border-radius: 3px;
+        }
+        
+        .incorrect { 
+            background-color: #f8d7da; 
+            color: #721c24; 
+            padding: 2px 1px;
+            border-radius: 3px;
+        }
+        
+        .pending { 
+            color: #6c757d; 
+        }
+        
+        .current {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 2px 1px;
+            border-radius: 3px;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+        
+        #typing-input {
+            display: none;
+        }
+        
+        #typing-input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 120px;
+            margin: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        .progress-bar {
+            background-color: #e9ecef;
+            border-radius: 10px;
+            height: 20px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #28a745, #20c997);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .reset-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+        }
+        
+        .reset-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .completion-message {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 18px;
+            animation: celebration 0.5s ease-in-out;
+        }
+        
+        @keyframes celebration {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Real-time Typing Practice</h1>
+        
+        <textarea 
+            id="reference-input" 
+            placeholder="Enter your reference text here (single line)..."
+            style="width: 100%; height: 60px; padding: 10px; border: 2px solid #007bff; border-radius: 10px; font-size: 16px; margin-bottom: 15px;"
+        ></textarea>
+        
+        <div id="reference-display" class="reference-container" tabindex="0"></div>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <span id="time-stat" class="stat-value">0.0</span>
+                <div class="stat-label">⏱ TIME (sec)</div>
+            </div>
+            <div class="stat-box">
+                <span id="accuracy-stat" class="stat-value">100</span>
+                <div class="stat-label">✅ ACCURACY (%)</div>
+            </div>
+            <div class="stat-box">
+                <span id="wpm-stat" class="stat-value">0</span>
+                <div class="stat-label">⌨️ WPM</div>
+            </div>
+            <div class="stat-box">
+                <span id="progress-stat" class="stat-value">0/0</span>
+                <div class="stat-label">📊 PROGRESS</div>
+            </div>
+        </div>
+        
+        <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill" style="width: 0%">0%</div>
+        </div>
+        
+        <div id="completion-message" class="completion-message" style="display: none;"></div>
+        
+        <button class="reset-btn" onclick="resetPractice()">🔄 Reset Practice</button>
+    </div>
+
+    <script>
+        let referenceText = "";
+        let startTime = null;
+        let typedText = "";
+        
+        const referenceInput = document.getElementById('reference-input');
+        const referenceDisplay = document.getElementById('reference-display');
+        const timeSpan = document.getElementById('time-stat');
+        const accuracySpan = document.getElementById('accuracy-stat');
+        const wpmSpan = document.getElementById('wpm-stat');
+        const progressSpan = document.getElementById('progress-stat');
+        const progressFill = document.getElementById('progress-fill');
+        const completionMessage = document.getElementById('completion-message');
+        
+        // Handle reference text input
+        referenceInput.addEventListener('input', function(e) {
+            referenceText = e.target.value.replace(/\n/g, ' ').trim();
+            resetPractice();
+        });
+        
+        // Handle typing directly on reference display
+        referenceDisplay.addEventListener('keydown', function(e) {
+            // Prevent default for most keys except special ones
+            if (!e.ctrlKey && !e.altKey && e.key.length === 1) {
+                e.preventDefault();
+                
+                // Add the typed character
+                typedText += e.key;
+                
+                // Start timer on first character
+                if (typedText.length === 1 && startTime === null) {
+                    startTime = Date.now();
+                }
+                
+                updateDisplay();
+            } else if (e.key === 'Backspace') {
+                e.preventDefault();
+                typedText = typedText.slice(0, -1);
+                updateDisplay();
+            }
+        });
+        
+        // Initialize display
+        updateDisplay();
+        
+        function updateDisplay() {
+            // Update reference text with colors
+            let coloredText = '';
+            let correctChars = 0;
+            
+            for (let i = 0; i < referenceText.length; i++) {
+                const refChar = referenceText[i];
+                
+                if (i < typedText.length) {
+                    if (typedText[i] === refChar) {
+                        coloredText += `<span class="correct">${refChar}</span>`;
+                        correctChars++;
+                    } else {
+                        coloredText += `<span class="incorrect">${refChar}</span>`;
+                    }
+                } else if (i === typedText.length) {
+                    // Current character to type
+                    coloredText += `<span class="current">${refChar}</span>`;
+                } else {
+                    coloredText += `<span class="pending">${refChar}</span>`;
+                }
+            }
+            
+            referenceDisplay.innerHTML = coloredText;
+            
+            // Auto-scroll to current position
+            const currentSpan = referenceDisplay.querySelector('.current');
+            if (currentSpan && referenceText.length > 0) {
+                const containerWidth = referenceDisplay.clientWidth;
+                const spanLeft = currentSpan.offsetLeft;
+                
+                // Only scroll when current position is getting close to right edge
+                const scrollThreshold = containerWidth * 0.7; // Start scrolling when 70% across
+                const currentScrollLeft = referenceDisplay.scrollLeft;
+                const relativePosition = spanLeft - currentScrollLeft;
+                
+                if (relativePosition > scrollThreshold) {
+                    // Scroll by smaller increments to keep text visible
+                    referenceDisplay.scrollLeft = currentScrollLeft + (containerWidth * 0.3);
+                }
+            }
+            
+            // Calculate stats
+            if (startTime) {
+                const elapsedTime = (Date.now() - startTime) / 1000;
+                
+                // Calculate accuracy based only on characters typed so far
+                const accuracy = typedText.length > 0 ? (correctChars / typedText.length) * 100 : 100;
+                
+                const wordsTyped = typedText.trim().split(/\s+/).length;
+                const wpm = elapsedTime > 0 ? (wordsTyped / elapsedTime) * 60 : 0;
+                const progress = Math.min(typedText.length / referenceText.length, 1) * 100;
+                
+                // Update display
+                timeSpan.textContent = elapsedTime.toFixed(1);
+                accuracySpan.textContent = accuracy.toFixed(1);
+                wpmSpan.textContent = wpm.toFixed(1);
+                progressSpan.textContent = `${typedText.length}/${referenceText.length}`;
+                progressFill.style.width = progress + '%';
+                progressFill.textContent = progress.toFixed(1) + '%';
+                
+                // Check completion
+                if (typedText.length >= referenceText.length) {
+                    if (accuracy === 100) {
+                        completionMessage.innerHTML = '🎉 Perfect! You completed with 100% accuracy!';
+                        completionMessage.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+                    } else {
+                        completionMessage.innerHTML = `✅ Completed! Final accuracy: ${accuracy.toFixed(1)}%`;
+                        completionMessage.style.background = 'linear-gradient(135deg, #17a2b8, #138496)';
+                    }
+                    completionMessage.style.display = 'block';
+                } else {
+                    completionMessage.style.display = 'none';
+                }
+            }
+        }
+        
+        function resetPractice() {
+            startTime = null;
+            typedText = '';
+            referenceDisplay.scrollLeft = 0;
+            completionMessage.style.display = 'none';
+            updateDisplay();
+            referenceDisplay.focus();
+        }
+        
+        // Auto-focus on load
+        window.addEventListener('load', () => {
+            referenceDisplay.focus();
+        });
+        
+        // Handle window resize to fix scroll positions
+        window.addEventListener('resize', function() {
+            setTimeout(() => {
+                updateDisplay();
+            }, 100);
+        });
+        
+        // Update stats every 100ms for smooth real-time display
+        setInterval(() => {
+            if (startTime && typedText.length > 0 && typedText.length < referenceText.length) {
+                updateDisplay();
+            }
+        }, 100);
+    </script>
+</body>
+</html>
