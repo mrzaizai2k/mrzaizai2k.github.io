@@ -29,6 +29,9 @@ main:
 
   - title: "Talks"
     url: /talks/ 
+
+  - title: "Typing"
+    url: /typing/ 
     
   # - title: "Guide"
   #   url: /markdown/
