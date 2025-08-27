@@ -233,6 +233,133 @@
             0% { transform: scale(0.8); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
         }
+
+        .controls-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #word-count {
+            width: 100px;
+            padding: 12px 15px;
+            border: 2px solid #007bff;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            text-align: center;
+            background: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,123,255,0.1);
+        }
+
+        #word-count:focus {
+            outline: none;
+            border-color: #0056b3;
+            box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+            transform: translateY(-1px);
+        }
+
+        body.dark-mode #word-count {
+            background: #3c3c3c;
+            border-color: #4dabf7;
+            color: #e0e0e0;
+            box-shadow: 0 2px 8px rgba(77,171,247,0.1);
+        }
+
+        body.dark-mode #word-count:focus {
+            border-color: #74c0fc;
+            box-shadow: 0 0 0 3px rgba(116,192,252,0.25);
+        }
+
+        .fetch-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102,126,234,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fetch-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .fetch-btn:hover {
+            background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102,126,234,0.4);
+        }
+
+        .fetch-btn:hover::before {
+            left: 100%;
+        }
+
+        .fetch-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(102,126,234,0.3);
+        }
+
+        .fetch-btn:disabled {
+            background: linear-gradient(135deg, #9ca3af, #6b7280);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 2px 8px rgba(156,163,175,0.2);
+        }
+
+        .fetch-btn:disabled:hover {
+            transform: none;
+            box-shadow: 0 2px 8px rgba(156,163,175,0.2);
+        }
+
+        body.dark-mode .fetch-btn {
+            background: linear-gradient(135deg, #4b5e8c 0%, #5e3c6f 100%);
+            box-shadow: 0 4px 15px rgba(75,94,140,0.3);
+        }
+
+        body.dark-mode .fetch-btn:hover {
+            background: linear-gradient(135deg, #3d4d73 0%, #4a2c57 100%);
+            box-shadow: 0 6px 20px rgba(75,94,140,0.4);
+        }
+
+        body.dark-mode .fetch-btn:disabled {
+            background: linear-gradient(135deg, #4b5563, #374151);
+            box-shadow: 0 2px 8px rgba(75,85,99,0.2);
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
     </style>
 </head>
 <body>
@@ -241,9 +368,15 @@
         
         <textarea 
             id="reference-input" 
-            placeholder="Enter your reference text here (single line)..."
+            placeholder="Enter your reference text here (single line)... or use the button to fetch news."
             style="width: 100%; height: 60px; padding: 10px; border: 2px solid #007bff; border-radius: 10px; font-size: 16px; margin-bottom: 15px;"
         ></textarea>
+        
+        <div class="controls-container">
+            <input id="word-count" type="number" min="1" value="50" placeholder="Words" />
+            <button onclick="fetchNews('vi')" class="fetch-btn">🇻🇳 Fetch Vi</button>
+            <button onclick="fetchNews('en')" class="fetch-btn">🇺🇸 Fetch En</button>
+        </div>
         
         <div id="reference-display" class="reference-container" tabindex="0"></div>
         
@@ -276,7 +409,6 @@
             <button class="theme-toggle-btn" onclick="toggleTheme()">🌙 Toggle Theme</button>
             <button class="reset-btn" onclick="resetPractice()">🔄 Reset Practice</button>
         </div>
-</div>
     </div>
 
     <script>
@@ -432,6 +564,122 @@
                 updateDisplay();
             }
         }, 100);
+        
+        async function fetchNews(lang) {
+            const btn = event.target;  // Get the clicked button
+            const originalText = btn.innerHTML;  // Store original button text
+            try {
+                // Show loading state
+                btn.disabled = true;  // Disable button
+                btn.innerHTML = `<span class="loading-spinner"></span>Loading...`;  
+                const wordCount = parseInt(document.getElementById('word-count').value) || 50;
+                
+                // Try multiple proxy services
+                const proxies = [
+                    'https://api.codetabs.com/v1/proxy?quest=',
+                    'https://thingproxy.freeboard.io/fetch/'
+                ];
+                
+                const url = lang === 'vi' ? `https://vnexpress.net/` : `https://e.vnexpress.net/`;
+                let response = null;
+                let proxyUsed = '';
+                
+                // Try each proxy until one works
+                for (let proxy of proxies) {
+                    try {
+                        const proxyUrl = proxy + encodeURIComponent(url);
+                        response = await fetch(proxyUrl);
+                        if (response.ok) {
+                            proxyUsed = proxy;
+                            break;
+                        }
+                    } catch (e) {
+                        console.log(`Proxy ${proxy} failed:`, e.message);
+                        continue;
+                    }
+                }
+                
+                if (!response || !response.ok) {
+                    throw new Error('All proxy services failed');
+                }
+                
+                const text = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                let newsItems = [];
+
+                if (lang === 'vi') {
+                    const articles = doc.querySelectorAll('a.thumb.thumb-5x3');
+                    for (let article of articles) {
+                        const url = article.getAttribute('href');
+                        const title = article.getAttribute('title')?.trim() || '';
+                        if (url && !url.includes('eclick')) {
+                            newsItems.push({url, title, description: ''});
+                        }
+                    }
+                } else {
+                    const articles = doc.querySelectorAll('div.item-topstory');
+                    for (let article of articles) {
+                        const link = article.querySelector('a.thumb_news_site.thumb_5x3');
+                        const url = link?.getAttribute('href');
+                        const title = link?.getAttribute('title')?.trim() || '';
+                        const description = article.querySelector('div.lead_news_site')?.textContent.trim() || '';
+                        if (url && !url.includes('eclick')) {
+                            newsItems.push({url, title, description});
+                        }
+                    }
+                }
+
+                if (newsItems.length === 0) {
+                    alert('No news found');
+                    return;
+                }
+
+                const randomItem = newsItems[Math.floor(Math.random() * newsItems.length)];
+                const content = await getContent(proxyUsed + encodeURIComponent(randomItem.url), lang);
+                if (!content) {
+                    alert('No content');
+                    return;
+                }
+
+                const words = content.split(/\s+/);
+                const passage = words.slice(0, wordCount).join(' ');
+                referenceInput.value = passage;
+                referenceText = passage;
+                resetPractice();
+            } catch (e) {
+                alert('Error: ' + e.message);
+            } finally {
+                // Reset button state (this runs whether success or error)
+                btn.disabled = false;  // Re-enable button  
+                btn.innerHTML = originalText;  // Restore original text
+            }
+        }
+
+        async function getContent(proxyUrl, lang) {
+            try {
+                const response = await fetch(proxyUrl);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const text = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                const contentDiv = doc.querySelector(lang === 'vi' ? 'article.fck_detail' : 'div.fck_detail');
+                if (contentDiv) {
+                    const ps = contentDiv.querySelectorAll(lang === 'vi' ? 'p' : 'p.Normal');
+                    let content = '';
+                    for (let p of ps) {
+                        content += p.textContent.trim() + ' ';
+                    }
+                    return content.trim();
+                }
+                return '';
+            } catch (e) {
+                console.error('Error fetching content:', e);
+                return '';
+            }
+        }
     </script>
 </body>
 </html>
