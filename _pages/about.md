@@ -9,10 +9,13 @@ redirect_from:
 
 **Updated on 6 June 2025**: Please check [my new website](https://mrzaizai2k.xyz/) for updated info 
 
-I am a Senior Machine Learning Engineer and Data Science Team Leader at Nam A Bank, with expertise in AI, ML, and DL. I graduated from Ho Chi Minh City University of Technology with a BEng in Electronics - Telecommunications Engineering and am currently pursuing an MSc in Computer Science. My work focuses on computer vision, NLP, MLOps, and predictive analytics. Previously, I was an Algorithm Engineer at LONG Centre for Educational Development. I also led the Bach Khoa Music Club, organizing events like BK's Got Talent 2018.
+I am a Senior LLM Engineer at Joblogic, with expertise in AI, machine learning, and deep learning. I hold a BEng in Electronics – Telecommunications Engineering from Ho Chi Minh City University of Technology and am currently pursuing an MSc in Computer Science. My work focuses on large language models, computer vision, natural language processing, MLOps, and predictive analytics.
+
+Before joining Joblogic, I served as a Senior Machine Learning Engineer and Data Science Team Leader at Nam A Bank, where I led projects applying AI to real-world financial challenges. Earlier in my career, I worked as an Algorithm Engineer at the LONG Centre for Educational Development. Beyond my technical roles, I also led the Bach Khoa Music Club, organizing flagship events such as BK’s Got Talent 2018.
 
 ### Work
-- **(2023 - current)** Senior Machine Learning Engineer - Data Science Team Leader, Nam A Bank
+- **(2025 - current)** Senior LLM Engineer - Joblogic
+- **(2023 - 2025)** Senior Machine Learning Engineer - Data Science Team Leader, Nam A Bank
 - **(2022 - 2023)** Algorithm Engineer, LONG Centre for Educational Development
 
 ### Education
