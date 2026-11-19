@@ -25,8 +25,7 @@ rsync -a --delete \
   --exclude 'index.html' \
   "$PORTFOLIO/tools/" "$ROOT/frontend/public/tools/"
 
-cp "$PORTFOLIO/frontend/package-lock.json" "$ROOT/frontend/package-lock.json"
 
 echo "Synced from $PORTFOLIO."
 echo "Check by hand (not auto-synced): Footer.js, public/tools/index.html, package.json dependencies."
-echo "Then: cd frontend && npm install && npm run build"
+echo "Then: cd frontend && npm install && npm run build   (npm install keeps package-lock.json in sync; CI uses npm ci)"
